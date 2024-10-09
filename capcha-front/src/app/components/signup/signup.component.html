@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <form form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">FirstName</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="firstName" [(ngModel)]="form.firstName" required #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.errors}" class="form-control" id="floatingInput" placeholder="FirstName">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      </div>
+  
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">LastName</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="lastName" [(ngModel)]="form.lastName" required #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.errors}" class="form-control" id="floatingInput" placeholder="LastName">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="form.email" required #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors}" class="form-control" id="floatingInput" placeholder="Email">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      </div>
+  
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="form.password" required #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors}" class="form-control" id="floatingInput" placeholder="Password">
+      </div>
+  
+  
+      <re-captcha
+         (resolved)="resolved($event)"
+   (error)="onError($event)"
+          errorMode="handled"
+      siteKey="YOUR_SITE_KEY"
+  ></re-captcha>
+  
+      <hr>    
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+  </div>
